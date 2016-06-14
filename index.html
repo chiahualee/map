@@ -12,6 +12,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/equal-height.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script type="text/javascript" src="https://www.parsecdn.com/js/parse-latest.js"></script>
 </head>
@@ -28,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand page-scroll" href="#page-top">28個免費景點</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -41,10 +42,10 @@
                         <a class="page-scroll" href="#about">水上巡遊路線</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="#services">大阪歷史與今日</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#contact">THE・經典！</a>
                     </li>
                 </ul>
             </div>
@@ -58,25 +59,20 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>28個景點的各種省錢組合一次看</h1>
-                   <p><h3>TOP10 熱門</h3><br>
-
-
-大阪生活今昔館<br>
-
-大阪歷史博物館<br>
-大阪和平館<br>
-通天閣<br>
-四天王寺<br>
-大阪動物園<br>
-
-
-天然露天溫泉　SPA住之江<br>
-天保山大摩天輪<br>
-
-帆船型遊船 聖瑪利亞號<br>
-
-大阪府咲洲行政大樓展望台</p>
-</h4>
+                    <p>
+                        <h3>TOP10 熱門熱門(尚未可視化)</h3>
+                        <br> 大阪生活今昔館
+                        <br> 大阪歷史博物館
+                        <br> 大阪和平館
+                        <br> 通天閣
+                        <br> 四天王寺
+                        <br> 大阪動物園
+                        <br> 天然露天溫泉　SPA住之江
+                        <br> 天保山大摩天輪
+                        <br> 帆船型遊船 聖瑪利亞號
+                        <br> 大阪府咲洲行政大樓展望台
+                    </p>
+                    </h4>
                 </div>
             </div>
         </div>
@@ -85,21 +81,19 @@
     <section id="about" class="about-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12" >
-                    <div class="row"  >
-                        <div class="col-xs-12 col-md-8">GOOGLE　MAP HERE</div>
-                        <div class="col-xs-6 col-md-4"  >
-                         
-                                       盡享優惠的水上巡遊路線
-                                   
+                <div class="col-lg-12">
+                    <div class="row row-eq-height">
+                     <div class="col-md-4" ><h3>wow!你省了這麼多</h3>
+                     <img id="savePhoto" src="save1.png"></div>
+                        <div class="col-xs-6 col-md-4" id='map2'></div>
+                        <div class="col-xs-6 col-md-4">
+                            <h3> 盡享優惠的水上巡遊路線</h3>
                             <table class="table">
                                 <tbody>
-                                   
-                                    
                                     <tr>
-                                    <tr>
-                                        <td  style="background-color:#5bc0de;">雞波站</td>
-                                    </tr>
+                                        <tr>
+                                            <td style="background-color:#5bc0de;">雞波站</td>
+                                        </tr>
                                         <tr>
                                             <td style="background-color:#5bc0de;">本町站</td>
                                         </tr>
@@ -107,10 +101,10 @@
                                             <td style="background-color:#5bc0de;">大阪港站</td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#">帆船型遊船 聖瑪利亞號 (通常1600元)</a></td>
+                                            <td><a data-aid="0" id="route1-0">帆船型遊船 聖瑪利亞號 (通常1600元)</a></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#">天保山大摩天輪（通常800日圓）</a></td>
+                                            <td><a data-aid="1" id="route1-1">天保山大摩天輪（通常800日圓）</a></td>
                                         </tr>
                                         <tr>
                                             <td style="background-color:#5bc0de;">大阪港站</td>
@@ -119,10 +113,10 @@
                                             <td style="background-color:#5bc0de;">谷町四丁目站</td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#">大阪城天守閣（通常600日圓）</a></td>
+                                            <td><a data-aid="2" id="route1-2">大阪城天守閣（通常600日圓）</a></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#">大阪水上巴士Aqua-Liner（通常1,700日圓)</a></td>
+                                            <td><a data-aid="3" id="route1-3">大阪水上巴士Aqua-Liner（通常1,700日圓)</a></td>
                                         </tr>
                                         <tr>
                                             <td style="background-color:#5bc0de;">大阪商務園區站</td>
@@ -134,7 +128,7 @@
                                             <td style="background-color:#5bc0de;">難波站</td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#">道頓堀水上觀光船（通常900日圓）</a></td>
+                                            <td><a data-aid="4" id="route1-4">道頓堀水上觀光船（通常900日圓）</a></td>
                                         </tr>
                                         <tr>
                                             <td style="background-color:#5bc0de;">難波站</td>
@@ -142,6 +136,8 @@
                                 </tbody>
                             </table>
                         </div>
+
+                         
                     </div>
                 </div>
             </div>
@@ -167,11 +163,11 @@
             </div>
         </div>
     </section>
-    <!-- jQuery -->
+    <!--jQuery -->
     <script src="js/jquery.js"></script>
-    <!-- Bootstrap Core JavaScript -->
+    Bootstrap Core JavaScript
     <script src="js/bootstrap.min.js"></script>
-    <!-- Scrolling Nav JavaScript -->
+    <!--Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
     <script type="text/javascript" charset="UTF-8" src="js/data.js"></script>

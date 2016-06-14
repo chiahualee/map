@@ -30,6 +30,23 @@ body {
   width: 300px;
 }
 
+tr {
+width: 100%;
+display: inline-table;
+}
+
+table{
+ height:300px; 
+
+}
+tbody{
+  overflow-y: scroll;
+  height: 350px;
+  width: 100%;
+  position: absolute;
+
+}
+
 #pac-input:focus {
   border-color: #4d90fe;
 }
@@ -50,19 +67,7 @@ body {
   font-weight: 300;
 }
 
-tr {
-width: 100%;
-display: inline-table;
-}
-
-table{
- height:300px; 
-
-}
-tbody{
-  overflow-y: scroll;
-  height: 350px;
-  width: 100%;
-  position: absolute;
-
+#savePhoto{
+  
+  max-width: 300px;
 }

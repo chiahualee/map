@@ -75,5 +75,20 @@ var places =[
 },
 {name:"大阪府咲洲行政大樓展望台", location:{lat:34.638471, lng:135.414954},
     links:[]
-}
-]
+}]
+var route1_places = [
+    {name:"帆船型觀光船 聖瑪麗亞號", location:{lat:34.655326, lng:135.428868},
+    links:[{title:"【大阪周遊卡】聖瑪麗亞號 ＊ 跟著哥倫布發現新大陸(12)",link:"http://wkitty.pixnet.net/blog/post/32654795"}]
+},
+    {name:"天保山大摩天輪", location:{lat:34.656234, lng:135.432069},
+    links:[{title:"【大阪周遊卡】天保山摩天輪 ＊ 彩色摩天輪眺望整個大阪港(13)",link:"http://wkitty.pixnet.net/blog/post/32663663"}]
+},
+    {name:"大阪城天守閣", location:{lat:34.687545, lng:135.526244},
+    links:[{title:"【關西行程】大阪城天守閣＊ 大阪歷史傳承的象徵(9)",link:"http://wkitty.pixnet.net/blog/post/32614670"},{title:"【關西自由行●大阪】大阪周遊卡○瘋狂鐵腿一日遊○大阪城天守閣 ",link:"http://tigercat0530.pixnet.net/blog/post/182007444"}]
+},
+    {name:"大阪水上巴士Aqua-Liner", location:{lat:34.689790, lng:135.532898},
+    links:[]
+},
+{name:"道頓堀水上觀光船", location:{lat:34.669334, lng:135.502680},
+    links:[{title:"[大阪行程] 大阪周遊卡~道頓崛水上觀光船＊ 體驗大阪夜色之美，五光十色(16)",link:"http://wkitty.pixnet.net/blog/post/32700143"}]
+}]

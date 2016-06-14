@@ -1,8 +1,24 @@
 var map;
+var map2;
 var infoWindow; // 顯示在marker上的window 
 // var markers = []; // 要顯示的所有marker
+
+var map2_markers = []
+
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
+    center: { // 將預設地圖中心放在以下地點
+      lat: 34.667936,
+      lng: 135.502151
+    },
+    zoom: 12,
+    streetViewControl: false,
+    navigationControl: false,
+    mapTypeControl: false,
+    scaleControl: false,
+    disableDoubleClickZoom: true
+  });
+  map2 = new google.maps.Map(document.getElementById('map2'), {
     center: { // 將預設地圖中心放在以下地點
       lat: 34.667936,
       lng: 135.502151
@@ -17,6 +33,7 @@ function initMap() {
   // 產生一個infoWindow
   infoWindow = new google.maps.InfoWindow();
   addMarkersToMaps()
+
 }
 
 
@@ -30,9 +47,10 @@ function createMarker(latlng, name, links) {
   marker.addListener('click', function() {
     infoWindow.open(map, marker);
     infoWindow.title = name;
+
+    var content = "<h2  class='firstHeading'>" + name + "</h2>"
     if (links.length > 0) {
-      content = "<h2  class='firstHeading'>" + name + "</h2>" +
-        "<p>相關熱門文章</p>"
+      content += "<p>相關熱門文章</p>"
       for (var j = 0; j < links.length; j++) {
         content += "<p><a href='" + links[j]["link"] + "'>" + links[j]["title"] + "</a></p>"
       }
@@ -41,6 +59,27 @@ function createMarker(latlng, name, links) {
   });
 }
 
+function createMarker2(latlng, name, links) {
+  var marker = new google.maps.Marker({
+    position: latlng,
+    map: map2,
+    title: name
+  });
+  map2_markers.push(marker);
+  marker.addListener('linkClicked', function() {
+    infoWindow.open(map2, marker);
+    infoWindow.title = name;
+
+    var content = "<h2  class='firstHeading'>" + name + "</h2>"
+    if (links.length > 0) {
+      content += "<p>相關熱門文章</p>"
+      for (var j = 0; j < links.length; j++) {
+        content += "<p><a href='" + links[j]["link"] + "'>" + links[j]["title"] + "</a></p>"
+      }
+    }
+    infoWindow.setContent(content);
+  });
+}
 /*
  * you may not change the codes below
  */
@@ -54,29 +93,6 @@ function clearLocations() {
   markers = [];
 }
 
-//從Parse資料庫中讀取給予位置的附近地點
-function getNearNodes(lat, lng, radius) {
-  var PlaceObject = Parse.Object.extend("PlaceObject");
-  var query = new Parse.Query(PlaceObject);
-  // Interested in locations near user.
-  var point = new Parse.GeoPoint({
-    latitude: lat,
-    longitude: lng
-  });
-  query.near("location", point);
-  query.withinKilometers("location", point, radius)
-    // Limit what could be a lot of points.
-  query.limit(20);
-  // Final list of objects
-  query.find({
-    success: function(placesObjects) {
-      //將搜尋結果加入地圖
-      addMarkersToMaps(placesObjects);
-    }
-  });
-}
-
-
 function addMarkersToMaps() {
   for (var i = 0; i < places.length; i++) {
     var name = places[i]["name"];
@@ -87,5 +103,21 @@ function addMarkersToMaps() {
     );
     var links = places[i]["links"]
     createMarker(latlng, name, links);
+  }
+
+  for (var i = 0; i < route1_places.length; i++) {
+    var name = route1_places[i]["name"];
+    var location = route1_places[i]["location"];
+    var latlng = new google.maps.LatLng(
+      parseFloat(location["lat"]),
+      parseFloat(location["lng"])
+    );
+    var links = route1_places[i]["links"]
+    createMarker2(latlng, name, links);
+    aid = "route1-" + i
+    document.getElementById(aid).addEventListener("click", function(event) {
+      var n = event.target.getAttribute("data-aid")
+      new google.maps.event.trigger(map2_markers[n], 'linkClicked');
+    });
   }
 }
